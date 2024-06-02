@@ -1,0 +1,46 @@
+@startuml
+!define Table(name, fields) class name {
+  fields
+}
+
+Table(role, "id: BIGINT\nnombre: VARCHAR(255)")
+Table(usuario, "id: BIGINT\nusuario: VARCHAR(255)\npassword: VARCHAR(255)\nemail: VARCHAR(255)\nnombre: VARCHAR(255)\napellidos: VARCHAR(255)\nid_role: BIGINT\nactivo: BOOLEAN")
+Table(ofertante, "id: BIGINT")
+Table(demandante, "id: BIGINT")
+Table(admin, "id: BIGINT")
+Table(categoria, "id: BIGINT\nname: VARCHAR(255)")
+Table(oferta, "id: BIGINT\ntitle: VARCHAR(255)\ndescripcion: TEXT\ndate: DATE\nlocalizacion: VARCHAR(255)\nprice: DOUBLE\nestado: VARCHAR(255)\nid_ofertante: BIGINT\nid_admin_check: BIGINT")
+Table(demanda, "id: BIGINT\ntitle: VARCHAR(255)\ndescripcion: TEXT\nestado: VARCHAR(255)\nid_demandante: BIGINT\nid_admin_check: BIGINT")
+Table(post, "id: BIGINT\ndescripcion: TEXT\nid_demanda: BIGINT\nid_oferta: BIGINT\nid_usuario: BIGINT")
+Table(competencia, "id: BIGINT\nname: VARCHAR(255)")
+Table(comentario, "id: BIGINT\ncalificacion: INTEGER\ndescripcion: TEXT\nid_oferta: BIGINT\nid_demandante: BIGINT")
+Table(oferta_demandante, "id_oferta: BIGINT\nid_demandante: BIGINT")
+Table(competencia_ofertante, "id_competencia: BIGINT\nid_ofertante: BIGINT\nestado: VARCHAR(255)\nid_admin: BIGINT")
+Table(oferta_categoria, "oferta_id: BIGINT\ncategoria_id: BIGINT")
+Table(demanda_categoria, "demanda_id: BIGINT\ncategoria_id: BIGINT")
+Table(competencia_categoria, "competencia_id: BIGINT\ncategoria_id: BIGINT")
+
+usuario --|> role : "id_role"
+ofertante --|> usuario : "id"
+demandante --|> usuario : "id"
+admin --|> usuario : "id"
+oferta --|> ofertante : "id_ofertante"
+oferta --|> admin : "id_admin_check"
+demanda --|> demandante : "id_demandante"
+demanda --|> admin : "id_admin_check"
+post --|> demanda : "id_demanda"
+post --|> oferta : "id_oferta"
+post --|> usuario : "id_usuario"
+comentario --|> oferta_demandante : "id_oferta, id_demandante"
+oferta_demandante --|> oferta : "id_oferta"
+oferta_demandante --|> demandante : "id_demandante"
+competencia_ofertante --|> competencia : "id_competencia"
+competencia_ofertante --|> ofertante : "id_ofertante"
+competencia_ofertante --|> admin : "id_admin"
+oferta_categoria --|> oferta : "oferta_id"
+oferta_categoria --|> categoria : "categoria_id"
+demanda_categoria --|> demanda : "demanda_id"
+demanda_categoria --|> categoria : "categoria_id"
+competencia_categoria --|> competencia : "competencia_id"
+competencia_categoria --|> categoria : "categoria_id"
+@enduml

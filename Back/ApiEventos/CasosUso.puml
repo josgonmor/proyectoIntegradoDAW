@@ -1,0 +1,56 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Usuario" as Usuario
+actor "Ofertante" as Ofertante
+actor "Demandante" as Demandante
+actor "Administrador" as Administrador
+
+rectangle "Gestión de Usuarios" {
+    usecase "Registro"
+    usecase "Inicio de Sesión"
+    usecase "Ver Perfil"
+    usecase "Actualizar Perfil"
+    usecase "Eliminar Cuenta"
+}
+
+rectangle "Gestión de Ofertas" {
+    usecase "Crear Oferta"
+    usecase "Buscar Ofertas"
+    usecase "Ver Detalles de Oferta"
+    usecase "Editar Oferta"
+    usecase "Eliminar Oferta"
+}
+
+rectangle "Gestión de Demandas" {
+    usecase "Crear Demanda"
+    usecase "Buscar Demandas"
+    usecase "Ver Detalles de Demanda"
+    usecase "Editar Demanda"
+    usecase "Eliminar Demanda"
+}
+
+rectangle "Gestión de Moderacion" {
+    usecase "Aprobar Compentencias"
+    usecase "Añadir Competencias"
+    usecase "Aprobar Oferta"
+    usecase "Bloquear Oferta"
+    usecase "Aprobar Demanda"
+    usecase "Bloquear Demanda"
+}
+
+rectangle "Interacciones" {
+    usecase "Comentar"
+    usecase "Calificar"
+}
+
+
+Usuario --> "Gestión de Usuarios"
+Ofertante --> "Gestión de Ofertas"
+Demandante --> "Gestión de Demandas"
+Demandante --> "Gestión de Ofertas"
+Ofertante --> "Gestión de Demandas"
+Administrador --> "Gestión de Competencias"
+Usuario --> "Interacciones"
+@enduml
