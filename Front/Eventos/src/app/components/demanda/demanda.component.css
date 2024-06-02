@@ -1,0 +1,36 @@
+.bloque{
+    width: 60%;
+    height: auto;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1vh;
+}
+.title{
+    font-size: larger;
+    font-weight: bold;
+}
+.separador{
+    width: 90%;
+    height: 0.1vh;
+    border-top: 1px solid black;
+}
+.des{
+    width: 80%;
+    height: auto;
+    display: block;
+    text-align: justify;
+}
+.emailLine{
+    font-size: small;
+}
+.email{
+    font-style: italic;
+    color: red
+}
+.enlace{
+    font-style: italic;
+    color: darkgreen;
+    cursor: pointer;
+}   

@@ -1,0 +1,11 @@
+<div class="caja">
+    <div class="card bloque">
+        <span class="title"> {{demanda.title}} </span>
+        <div class="separador"></div>
+        <span>Descripción: </span>
+        <div class="card des"> {{demanda.descripcion}} </div>
+        <span>Autor: <a (click)="detallePerfil()" class="enlace">{{demanda.idDemandante?.usuario?.usuario}}</a> </span>
+        <div class="separador"></div>
+        <span class="emailLine">Par más información contacte con el autor con el correo <span class="email">{{demanda.idDemandante?.usuario?.email}}</span>, o escriba un Post abajo</span>
+    </div>
+</div>

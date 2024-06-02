@@ -1,0 +1,24 @@
+<div class="caja">
+    <div class="card bloque">
+        <span class="title"> {{oferta.title}} </span>
+        <div class="separador"></div>
+        <span>Descripción: </span>
+        <div class="card des text"> {{oferta.descripcion}} </div>
+        <div class="des">
+            <span>Autor: <a (click)="detallePerfil()" class="enlace">{{oferta.idOfertante?.usuario?.usuario}}</a></span>
+        </div>
+        <div class="des">
+            <span>Precio : {{oferta.price}}€</span>
+        </div>
+        <div class="des">
+            <span>Fecha: {{oferta.date}}</span>
+        </div>
+        <div class="des button">
+            <button class="btn btn-success" (click)="apuntarse()">
+                Apuntarse
+            </button>
+        </div>
+        <div class="separador"></div>
+        <span class="emailLine">Par más información contacte con el autor con el correo <span class="email">{{oferta.idOfertante?.usuario?.email}}</span>, o escriba un Post abajo</span>
+    </div>
+</div>

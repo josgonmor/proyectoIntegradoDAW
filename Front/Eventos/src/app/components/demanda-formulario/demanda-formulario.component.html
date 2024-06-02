@@ -1,0 +1,24 @@
+<div class="caja">
+    <div class="card">
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="title" class="form-label">Título</label>
+              <input type="text" id="title" class="form-control" formControlName="title">
+              @if (formGroup.get('title')?.invalid && formGroup.get('title')?.touched) {
+                <div class="text-danger">El título es requerido.</div>
+              }
+            </div>
+          
+            <div class="mb-3">
+              <label for="descripcion" class="form-label">Descripción</label>
+              <textarea id="descripcion" class="form-control" formControlName="descripcion"></textarea>
+              @if (formGroup.get('descripcion')?.invalid && formGroup.get('descripcion')?.touched) {
+                <div class="text-danger">La descripción es requerida.</div>
+              }
+            </div>
+          
+            <button type="submit" class="btn btn-primary" [disabled]="formGroup.invalid">Guardar</button>
+          </form>
+          
+    </div>
+</div>

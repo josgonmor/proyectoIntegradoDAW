@@ -1,0 +1,18 @@
+.bloque{
+    height: 30vh;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    padding: 1vh;
+}
+.bloque button{
+    width: 40%;
+    height: 50%;
+}
+.title{
+    width: 51%;
+    text-align: center;
+    font-size: larger;
+}

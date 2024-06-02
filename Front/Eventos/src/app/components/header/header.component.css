@@ -1,0 +1,16 @@
+
+.header{
+    height: auto;
+    width: 100%;
+    margin: 0;
+    background-color: #f8f9fa;
+}
+.nav-link {
+    cursor: pointer; 
+  }
+.titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+}

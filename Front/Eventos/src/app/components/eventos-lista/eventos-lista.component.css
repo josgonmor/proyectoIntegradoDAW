@@ -1,0 +1,38 @@
+.th{
+}
+.th div{
+    border-right: 1px solid grey;
+    font-size: 2rem;
+}
+.th div:last-child{
+    border-right: none;
+}
+.space{
+    height: .5vh;
+}
+.space2{
+    height: .20vh;
+}
+.fila{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.fila:hover{
+    opacity: 70%;
+}
+.filtro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.listaFiltros{
+    width: 60%;
+}
+.cat{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1vh;
+    height: auto;
+}

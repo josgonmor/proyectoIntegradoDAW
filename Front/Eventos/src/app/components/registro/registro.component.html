@@ -1,0 +1,86 @@
+<div class="caja">
+
+    <div class="card form">
+
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label  for="usuario">Usuario</label>
+              <input [disabled]="update" type="text" class="form-control" id="usuario" formControlName="usuario">
+              @if (usuario?.invalid && (usuario?.dirty || usuario?.touched)) {
+              <div class="text-danger">
+                Usuario es requerido.
+              </div>
+              }
+              @if(resError){
+              <div class="text-danger">
+                El nombre de Usuario ya existe.
+              </div>
+              }
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" formControlName="password">
+              @if (password?.invalid && (password?.dirty || password?.touched)) {
+              <div class="text-danger">
+                @if (password?.errors?.['required']) {
+                <div>Password es requerido.</div>
+                } @else if (password?.errors?.['minlength']) {
+                <div>Password debe tener al menos 6 caracteres.</div>
+                }
+              </div>
+              }
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" formControlName="email">
+              @if (email?.invalid && (email?.dirty || email?.touched)) {
+              <div class="text-danger">
+                @if (email?.errors?.['required']) {
+                <div>Email es requerido.</div>
+                } @else if (email?.errors?.['email']) {
+                <div>Formato de email incorrecto.</div>
+                }
+              </div>
+              }
+            </div>
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" class="form-control" id="nombre" formControlName="nombre">
+              @if (nombre?.invalid && (nombre?.dirty || nombre?.touched)) {
+              <div class="text-danger">
+                Nombre es requerido.
+              </div>
+              }
+            </div>
+            <div class="form-group">
+              <label for="apellidos">Apellidos</label>
+              <input type="text" class="form-control" id="apellidos" formControlName="apellidos">
+              @if (apellidos?.invalid && (apellidos?.dirty || apellidos?.touched)) {
+              <div class="text-danger">
+                Apellidos es requerido.
+              </div>
+              }
+            </div>
+            @if (!update) {
+            <div class="form-group">
+                <label>Tipo</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="ofertante" formControlName="tipo" value="OFERTANTE" checked>
+                  <label class="form-check-label" for="ofertante">Ofertante</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="demandante" formControlName="tipo" value="DEMANDANTE">
+                  <label class="form-check-label" for="demandante">Demandante</label>
+                </div>
+              </div>
+            }
+            <div>
+            <button type="submit" class="btn btn-primary" [disabled]="formGroup.invalid">Enviar</button>
+            @if(update){
+            <button type="button" class="btn btn-primary" routerLink="/inicio">Volver</button>
+            }
+            </div>
+          </form>
+          
+    </div>
+</div>

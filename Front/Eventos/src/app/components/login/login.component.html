@@ -1,0 +1,46 @@
+<div class="caja">
+
+    <div class="central card">
+        <span>
+            <h2>Inicio de Sesión</h2>
+        </span>
+        <div class="texto card">
+            <!-- <label for="">
+                Usuario
+                <input type="text" [(ngModel)]="usuario.usuario">
+            </label> -->
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre"[(ngModel)]="usuario.usuario"  placeholder="Introduce tu usuario">
+              </div>
+            <div class="mb-3">
+                <label for="pass" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="pass"[(ngModel)]="usuario.password"  placeholder="Contraseña">
+              </div>
+            <br>
+        </div>
+        <br>
+        <div class="botones">
+            <button type="button" class="btn btn-primary" routerLink="">
+                Volver
+            </button>
+            <button type="button" class="btn btn-primary" (click)="loggin()">
+                Iniciar 
+            </button>
+        </div>
+        <div>
+            <a routerLink="/registro/-1">¿No tienes cuenta? Regístrate!</a>
+        </div>
+        <br>
+        <br>
+
+        @if(logError) {
+            <!-- <div class="error">
+                LOGGIN INCORRECTO
+            </div> -->
+            <div class="alert alert-danger" role="alert">
+                Loggin Incorrecto
+              </div>
+        }
+    </div>
+</div>

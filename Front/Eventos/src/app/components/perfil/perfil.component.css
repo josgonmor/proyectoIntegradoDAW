@@ -1,0 +1,33 @@
+
+.fila{
+    font-size: 1rem;
+    padding: .5vh;
+}
+.fila:hover{
+}
+.space{
+    height: 1vh;
+}
+.bloque{
+    width: 60%;
+    margin: 1vh auto;
+    padding: 1vh;
+}
+.title{
+    font-size: larger;
+    font-weight: bold;
+}
+.separador{
+    width: 90%;
+    height: 0.1vh;
+    border-top: 1px solid black;
+    margin-bottom: .2vh;
+}
+.bloqueTitulo{
+    display: flex;
+    justify-content: space-between;
+    padding: .3vh;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 6vh;
+}

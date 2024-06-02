@@ -1,0 +1,120 @@
+<div class="casja">
+    <div class="card bloque">
+        <span class="title">Perfil del usuario</span>
+        <div class="separador"></div>
+        <span>Usuario: {{usuario.usuario}} </span>
+        <span>Email: {{usuario.email}} </span>
+        <span>Nombre {{usuario.nombre}} </span>
+        <span>Apellidos: {{usuario.apellidos}} </span>
+        @if (self) {
+            <button class="btn btn-primary" routerLink="/registro/edicion">
+                Editar valores
+            </button>
+        }
+    </div>
+    @if (demandas.length==0&&self&& rol=="DEMANDANTE") {
+                <button class="btn btn-primary" routerLink="/demanda-form/{{usuario.id}}">
+                    Añadir tu primera demanda
+                </button>
+    }
+    @if (ofertas.length==0&&self&& rol=="OFERTANTE") {
+                <button class="btn btn-primary" routerLink="/oferta-form/{{usuario.id}}">
+                    Añadir tu primera Oferta
+                </button>
+    }
+    @if (demandas.length>0) {
+        <div class="card bloque">
+            <div class="bloqueTitulo">
+                <span> Demandas Activas</span>
+                @if(self){
+                <button class="btn btn-primary" routerLink="/demanda-form/{{usuario.id}}">
+                    Añadir
+                </button>
+                }
+            </div>
+            <div class="separador"></div>
+            @for (item of demandas; track $index) {
+            <div class="card">
+                <div class="row fila">
+                    <div class="col-3">
+                        {{item.title.length>20?item.title.substring(0, 20)+"...": item.title}}
+                    </div>
+                    <div class="col-6">
+                        {{item.descripcion.length>50?item.descripcion.substring(0, 50)+"...": item.descripcion}}
+                    </div>
+                    <div class="col-3">
+                        @if (self) {
+                            <div class="bloqueTitulo">
+                            <button class="btn btn-success" routerLink="/demanda-form/{{usuario.id}}/{{item.id}}">Editar</button>
+                            <button class="btn btn-danger" (click)="deleteDemanda(item.id)">
+                                Borrar
+                            </button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="space"></div>
+            }
+        </div>
+    }@else if (ofertas.length>0) {
+        <div class="card bloque">
+            <div class="bloqueTitulo">
+                <span> Ofertas Activas</span>
+                @if(self){
+                <button class="btn btn-primary" routerLink="/oferta-form/{{usuario.id}}">
+                    Añadir
+                </button>
+                }
+            </div>
+            <div class="separador"></div>
+            @for (item of ofertas; track $index) {
+            <div class="card" >
+                <div class="row fila">
+                    <div class="col-3">
+                        {{item.title.length>20?item.title.substring(0, 20)+"...": item.title}}
+                    </div>
+                    <div class="col-6">
+                        {{item.descripcion.length>50?item.descripcion.substring(0, 50)+"...": item.descripcion}}
+                    </div>
+                    <div class="col-3">
+                        @if (self) {
+                            <button class="btn btn-success" routerLink="/oferta-form/{{usuario.id}}/{{item.id}}">Editar</button>
+                            <button class="btn btn-danger" (click)="deleteOferta(item.id)">
+                                Borrar
+                            </button>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="space"></div>
+            }
+        </div>
+    }
+    @if (competencias.length>0) {
+        <div class="card bloque">
+            <div class="bloqueTitulo">
+                <span> Competencias del Usuario</span>
+                @if (self) {
+                <button class="btn btn-primary">
+                   Añadir
+                </button>
+                }
+            </div>
+            <div class="separador"></div>
+            @for (item of competencias; track $index) {
+            <div class="card">
+                <div class="bloqueTitulo">
+                    <span> {{item.name}} </span>
+                @if(self){
+                    <button class="btn btn-danger">
+                        Borrar
+                    </button>
+                }
+                </div>
+            </div>
+            <div class="space"></div>
+            }
+        </div>
+    }
+</div>

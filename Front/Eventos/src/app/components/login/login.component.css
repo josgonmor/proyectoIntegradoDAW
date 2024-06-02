@@ -1,0 +1,33 @@
+.central{
+    text-align: center;
+    padding: auto;
+    padding-top: 2vh;
+    width: 55%;
+    height: 50%;
+    border: 1px solid red;
+}
+
+.texto{
+    padding: 1vh;
+    margin: auto;
+    width: 40%;
+    /* border: 1px solid greenyellow; */
+    text-align: justify;
+}
+.botones{
+    margin-bottom: 1vw;
+    padding: 1vh;
+    margin: auto;
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+}
+.Error{
+
+    margin: auto;
+    color: red;
+    width: 40%;
+    border: 1px solid greenyellow;
+    display: flex;
+    justify-content: center;
+}

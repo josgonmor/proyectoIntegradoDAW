@@ -1,0 +1,44 @@
+.bloque{
+    width: 60%;
+    height: auto;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1vh;
+}
+.title{
+    font-size: larger;
+    font-weight: bold;
+}
+.separador{
+    width: 90%;
+    height: 0.1vh;
+    border-top: 1px solid black;
+    margin-bottom: .5vh;
+}
+.des{
+    width: 80%;
+    height: auto;
+    display: block;
+    text-align: justify;
+}
+.text{
+    font-size: medium;
+    padding: 1vh;
+}
+.emailLine{
+    font-size: small;
+}
+.email{
+    font-style: italic;
+    color: red
+}
+.button{
+    padding: 1vh;
+}
+.enlace{
+    font-style: italic;
+    color: darkgreen;
+    cursor: pointer;
+}   

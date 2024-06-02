@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+*{
+    box-sizing: border-box;
+    border: 0;
+    padding: 0;
+}
+
+html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+ }
+ 
+ body {
+    margin: 0px;
+    min-height: 100%;
+    width: 100%;
+    background-color: pink;
+ }
+.caja{
+
+    width: 100%;
+    min-height: 90vh;
+    height: auto;
+    /* border: 2px solid green; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

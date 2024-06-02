@@ -1,0 +1,103 @@
+<div class="caja">
+    <div class="card filtro" style="width: 50%;">
+        <span>Filtro por Categorias</span>
+        <div class="cat">
+            <input type="text" class="form-control" [(ngModel)]="categoriaText" (input)="filterOptions()"
+                placeholder="Buscar..." style="width: 50%;">
+            <div class="dropdown btn-group">
+                <select class="form-control" [(ngModel)]="categoriaChange" (change)="changeSelect()">
+                    @for (item of categoriasFilters; track $index) {
+                    <option [value]="item.id">{{item.name}}</option>
+                    }
+                </select>
+            </div>
+            <div>
+                <button class="btn btn-secondary" type="button" [disabled]="!categoriaSelected.id" (click)="addCategoria()">
+                    Seleccionar
+                </button>
+            </div>
+        </div>
+    </div>
+    @if (categoriasSelected.length>0) {
+    <div class="card listaFiltros">
+        <span>Categorias de Busqueda: </span>
+        <div style="color: red;">
+        @for (item of categoriasSelected; track $index) {
+            {{item.name}},
+        }
+        </div>
+        <button type="button" class="btn btn-primary" (click)="addFilter()">
+            Filtrar
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="deleteFilter()">
+            Borrar Filtros
+        </button>
+    </div>
+    }
+    <div class="container mt-4">
+        <ul class="list-group mb-4">
+            <div class="card">
+                <div class="row th">
+                    <div class="col-3">
+                        OFERTA
+                    </div>
+                    <div class="col-6">
+                        DESCRIPCIÓN
+                    </div>
+                    <div class="col-3">
+                        OFERTANTE
+                    </div>
+                </div>
+
+            </div>
+            <div class="space"></div>
+            @if(displayedItems.length==0){
+                <div class="card" style="text-align: center;">
+                    Actualmente no hay Ofertas con las categorias seleccionadas
+                </div>
+            }
+            @for (item of displayedItems; track $index) {
+            <div class="card" (click)="detalleOferta(item)">
+                <div class="row fila">
+                    <div class="col-3">
+                        {{item.title.length>20?item.title.substring(0, 20)+"...": item.title}}
+                        @if(item.idAdminCheck){
+                        <picture>
+                            <img src="assets/check.png" style="height: 2vh; width: 2vh;">
+                        </picture>
+                        }
+                    </div>
+                    <div class="col-6">
+                        {{item.descripcion.length>50?item.descripcion.substring(0, 50)+"...": item.descripcion}}
+                    </div>
+                    <div class="col-3">
+                        {{item.idOfertante.usuario.usuario.length>20?item.idOfertante.usuario.usuario.substring(0,
+                        20)+"...": item.idOfertante.usuario.usuario}}
+                    </div>
+                </div>
+            </div>
+            <div class="space2"></div>
+            }
+        </ul>
+
+        <div>
+            <ul class="pagination justify-content-center">
+                <li class="page-item" [class.disabled]="currentPage === 1">
+                    <a class="page-link" (click)="goToPage(currentPage - 1)" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                @for (page of pages; track $index) {
+                <li class="page-item" [class.active]="currentPage === page">
+                    <a class="page-link" (click)="goToPage(page)">{{ page }}</a>
+                </li>
+                }
+                <li class="page-item" [class.disabled]="currentPage === totalPages">
+                    <a class="page-link" (click)="goToPage(currentPage + 1)" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="caja">
+    @if (ofertante) {
+        <div class="card title"><span>Bienvenido Ofertante</span></div>
+        <div class="card bloque">
+            <button class="btn btn-primary" routerLink="/perfil">
+                Ver Perfil
+            </button>
+            <button class="btn btn-primary" routerLink="/demandas">
+                Ver demandas activas
+            </button>
+            <button class="btn btn-primary" routerLink="/demandas/">
+                Añadir Oferta
+            </button>
+        </div>
+    } @else if (!ofertante) {
+        <div class="card title"><span>Bienvenido Demandante</span></div>
+        <div class="card bloque">
+            <button class="btn btn-primary" routerLink="/perfil">
+                Ver Perfil
+            </button>
+            <button class="btn btn-primary" routerLink="/eventos">
+                Ver Ofertas Activas 
+            </button>
+        </div>
+    }
+</div>
